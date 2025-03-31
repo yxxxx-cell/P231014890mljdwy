@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="lj">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS练习2</title>
+    <style>
+        body{
+          h1 {
+        background-color: #ff85a2;
+      }
+        background-color: rgb(252, 218, 238);
+        background-image: url("https://tse3-mm.cn.bing.net/th/id/OIP-C.7f2MtoUOtm6lXxA4v0NBGwEnDT?rs=1&pid=ImgDetMain");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        text-align: center;
+      }
+        
+        </style>
+</head>
+<body>
+    <h1>CSS背景</h1>
+    <div>
+        CSS全称是层叠样式,用于控制网页的外观和布局。应该分点说明:功能、组成部分、作用对象、与HTML的关系、特性(如层叠性、继承性) .  通过 CSS,我们可以进行页面布局,设置元素样式,还可将这些样式或者布局应用到多个元素或者多个页面中.
+    </div>
+    <h2>CSS 盒模型</h2>
+    <div class="box">
+      盒模型是 CSS 布局的基石，它定义了元素在页面上的位置和大小。在 CSS 中，每个元素都被看作是一个矩形的盒子，这个盒子由内容、内边距、边框和外边距组成。
+    </div>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        border: 2px solid #ed0264;
+        padding: 20px;
+        margin-top: 3em;
+        border-radius: 5px;
+      }
+    </style>
+    <h2>信息流、display以及position</h2>
+    <ul>
+      <li>信息流</li>
+      <li>display</li>
+      <li>position</li>
+    </ul>
+    <ul>
+      <li style="display: inline">信息流：浏览器在呈现信息时会按照元素的类型进行处理，它将块元素从上到下显示（块元素与块元素之间另起一行），将行内元素按语言方向水平显示（如汉字、英语是从左到右，维吾尔语、阿拉伯语等有些语言是从右到左），行内元素直到到达容器边缘时才换行显示，这种显示元素的方式叫做页面的正常流。</li>
+      <li style="display: inline">display:元素如何显示，可以通过 display 属性进行指定。每一个元素都有一个默认的 display 属性，但这个属性值可以修改。块元素和行内元素可通过 display 属性改变它们的显示方式，比如在某些情景，编辑人员需要给行内元素添加高度，以改进元素的显示效果，行内元素是无法直接通过 width 属性指定宽度的，但可以通过 display 属性将其变为块元素，再为其添加高度。</li>
+      <li style="display: inline">pdsition:position 属性用来设定对象的定位方式。</li>
+      <li style="display: none">列表项目</li>
+    </ul>
+    <h2>flex局部</h2>
+    <div class="flex-container">
+      <p>Flex box布局模型的主要目的是提供更有效率的布局方式,尤其是当容器内元素的尺寸不固定的时候更能表现出它的优势。它能够自动识别子元素的尺寸,从而为盒装模型提供更高的灵活性。</p>
+      <p>如果元素采用Flex进行布局,那么这个元素就可以称为Flex容器(Flex container),元素的所有子元素称为Flex项目(Flex item).</p>
+      <p>order属性定义项目的排列顺序。数值越小,排列越靠前,默认为0。</p>
+    </div>
+    <style>
+      .flex-container {
+        display: flex;
+        flex-direction: column;
+      }
+      .flex-container p {
+        background-color: #fa7b80;
+        border: 3px solid rgb(6, 224, 224);
+        margin-right: 1em;
+        padding: 5px;
+      }
+    </style>
+  </body>
+</html>
