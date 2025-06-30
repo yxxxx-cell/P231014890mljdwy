@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>职场工作系统演示</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Segoe UI', sans-serif;
+        }
+    </style>
+    <script>
+        // 考勤打卡系统
+        const workHours = 8
+        console.log('每日工时：' + workHours + '小时')
+
+        // 会议安排
+        const meetingRoom = 'A-201'
+        console.log(`今日会议室：${meetingRoom}`)
+
+        // 任务优先级判断
+        const urgentTask = '100'
+        const normalTask = '100'
+        console.log(urgentTask == normalTask)  // true
+        console.log(urgentTask === normalTask) // false
+
+        // 考勤时间判断
+        const checkInTime = '09:00'
+        if (checkInTime <= '09:00') {
+            console.log('✅ 准时打卡')
+        } else {
+            console.log('⏰ 迟到提醒')
+        }
+
+        // 项目进度跟踪
+        for (let project = 1; project <= 5; project++) {
+            console.log(`跟进项目 ${project}`)
+        }
+
+        // 邮件处理
+        let unreadEmails = 5
+        while (unreadEmails > 0) {
+            console.log('📧 处理第 ' + unreadEmails + ' 封邮件')
+            unreadEmails--
+        }
+
+        // 工作报告函数
+        function dailyReport(department, progress) {
+            console.log(`【${department}】今日进度：${progress}`)
+            return progress + ' 已完成'
+        }
+        
+        const reportResult = dailyReport('技术部', '需求分析')
+        console.log('报告状态：' + reportResult)
+    </script>
+</head>
+<body>
+    <h2 style="color: #2c3e50; margin: 20px">企业管理系统控制台</h2>
+</body>
+</html>

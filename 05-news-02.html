@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="lj">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let a = 10;
+        const title='不变的值'
+        alert(title)
+        let b = '10';
+        console.log(a==b)
+        console.log(a===b)
+        console.log(a+b)
+        console.log(a+Number(b))
+        let age = 18
+        if(age>=16){
+            console.log('可以骑电动车')
+        }else{
+            console.log('不可以骑车')
+        }
+        for(let i=0;i<9;i++){
+            console.log(i)
+        }
+        while(age<18){
+            console.log('不可以考驾照')
+        if (age >= 18) {
+                console.log('可以考驾照')
+            }
+            function sayHello(){    
+                console.log('这是一个打招呼的函数')
+            }
+        sayHello()
+        function sayHello2(message){
+            console.log('message')
+         }
+        sayHello2('这是带参数的打招呼函数')
+        function sayHello3(message){
+            console.log(message)
+            return message+'这是返回值'
+        }
+        sayHello3('你好')
+        let result = sayHello3('你好')
+        console.log(result)
+        let result2 = sayHello3('你好')+sayHello3('你好')
+        console.log(result2)
+        let result3 = sayHello3('你好')+sayHello3('你好')+sayHello3('你好')
+        console.log(result3)
+    }
+    </script>
+   
+      
+    
+</head>
+<body>  
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能设备控制</title>
+    <script>
+        // 智能家居设备
+        class SmartDevice {
+            constructor(name, type, version) {
+                this.name = name
+                this.type = type
+                this.version = version
+            }
+            activate() {
+                console.log(`【${this.type}】${this.name} 已激活`)
+            }
+            shutdown() {
+                console.log(`【${this.type}】${this.name} 已关机`)
+            }
+        }
+        
+        let mySpeaker = new SmartDevice('SoundX 2025', '智能音箱', 'v2.3')
+        mySpeaker.activate()
+        mySpeaker.shutdown()
+
+        // 物联网设备扩展
+        class IoTDevice extends SmartDevice {
+            constructor(name, type, version, protocol) {
+                super(name, type, version)
+                this.protocol = protocol
+            }
+            connect() {
+                console.log(`[${this.protocol}] ${this.name} 连接中...`)
+            }
+        }
+        
+        let myThermo = new IoTDevice('EcoControl', '温控器', 'v1.2', 'Zigbee')
+        myThermo.activate()
+        myThermo.connect()
+
+        // 异步操作演示
+        console.log('系统初始化开始')
+        setTimeout(() => {
+            console.log('固件更新完成')
+        }, 1500)
+        console.log('等待外围设备响应')
+    </script>
+</head>
+
+<body>
+    <h1 onclick="alert('设备控制台已启动！')">智能家居控制中心</h1>
+    <div id="dashboard">设备状态监控</div>
+</body>
+
+<script>
+    let panel = document.getElementById('dashboard')
+    panel.innerHTML = '当前连接设备：3台'
+    panel.onclick = function() {
+        alert('正在刷新设备列表...')
+    }
+</script>
+
+</html>

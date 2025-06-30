@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 核心概念：背景、盒模型、布局、动画</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      h1 {
+        background-image: url("./images/780.jpg");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        text-align: center;
+        color: #2c3e50;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS 核心概念：背景、盒模型、布局、动画</h1>
+    <section>
+      <h2 style="color: #3498db">背景</h2>
+      <div>
+        <p style="color: #34495e">
+          CSS 的核心是层叠样式表，通过背景属性我们可以为元素添加丰富的视觉效果，
+          例如渐变背景、图片背景等特性。
+        </p>
+      </div>
+    </section>
+    // ... 中间代码保持不变 ...
+    <section>
+      <h2 style="color: #e74c3c">动画</h2>
+      动画三要素：起始状态、结束状态、持续时间
+      <style>
+        .animate-box {
+          background-color: #bdc3c7;
+          color: #2c3e50;
+        }
+        .animate-box:hover {
+          background-color: #e74c3c;
+        }
+      </style>
+      <div class="animate-box">交互式组件示例</div>
+    </section>
+  </body>
+</html>

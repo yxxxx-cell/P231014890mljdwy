@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气数据异步查询演示</title>
+    <style>
+        body {
+            background-color: #f0fafa;
+            font-family: '微软雅黑', sans-serif;
+        }
+        table {
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: #2c3e50; text-align: center">实时天气数据平台</h1>
+    <div id="demo"></div>
+
+    <script>
+        // 基础异步演示
+        setTimeout(() => {
+            console.log('[系统] 天气数据缓存已更新')
+        }, 2000)
+        console.log('[启动] 天气服务初始化...')
+
+        // 获取城市基础数据
+        function fetchCityData() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    console.log('✅ 已加载城市地理信息')
+                    resolve();
+                }, 1000)
+            })
+        }
+        
+        // 异步获取详细天气
+        async function getWeatherDetails(cityCode) {
+            await new Promise((resolve) => {
+                setTimeout(() => {
+                    console.log(`🌤 正在获取 ${cityCode} 的天气数据`)
+                    resolve();
+                }, 1000)
+            });
+        }
+
+        // 主查询流程
+        (async () => {
+            await fetchCityData();
+            console.log('[系统] 基础服务准备就绪');
+        })();
+
+        // 天气API查询函数
+        async function getWeatherHistory(city) {
+            const url = `https://api.weather.com/v1/${city}/history`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('天气服务暂不可用');
+                }
+                const weatherData = await response.json();
+                const metrics = weatherData.map(day => ({
+                    date: day.forecastDate,
+                    temp: `${day.minTemp}℃ ~ ${day.maxTemp}℃`
+                }));
+                return metrics;
+            } catch (error) {
+                console.error('❌ 数据获取失败:', error);
+                return [];
+            }
+        }
+
+        // 展示天气数据表格
+        function showWeatherTable(metrics) {
+            let html = `<table border="1" cellpadding="8" style="border-collapse: collapse">
+                <tr style="background-color: #e3f2fd">
+                    <th>日期</th>
+                    <th>温度范围</th>
+                </tr>`;
+                
+            metrics.forEach((item, index) => {
+                html += `<tr>
+                    <td>${item.date}</td>
+                    <td style="color: ${index < 3 ? '#e74c3c' : '#2ecc71'}">${item.temp}</td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            document.getElementById('demo').innerHTML = html;
+        }
+
+        // 示例调用
+        getWeatherHistory('BEIJING')
+            .then(data => {
+                console.log('最新天气数据:', JSON.stringify(data));
+                showWeatherTable(data);
+            });
+    </script>
+</body>
+</html>
